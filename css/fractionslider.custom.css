@@ -1,0 +1,17 @@
+.ui.fraction {
+    display: block;
+    height: 300px;
+    position: relative;
+}
+
+.ui.fraction .slider {
+    background: url('../images/binding_dark.png') transparent repeat center center;
+}
+
+.ui.fraction .slider p {
+    background-color: #fff;
+}
+
+.ui.fraction .fraction-slider {
+    min-height: 300px;
+}
