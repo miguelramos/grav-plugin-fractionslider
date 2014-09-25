@@ -1,0 +1,63 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.slider').fractionSlider({
+        enabled: {{ page.header.fractionslider.enabled|default('true') }},
+        built_in_css: {{ page.header.fractionslider.built_in_css|default('true') }},
+        slideTransition: "{{ page.header.fractionslider.slideTransition|default('none') }}", //default slide transition
+        slideTransitionSpeed: {{ page.header.fractionslider.slideTransitionSpeed|default(2000) }}, //default slide transition time
+        slideEndAnimation : {{ page.header.fractionslider.slideEndAnimation|default('true') }}, //if set true objects will transition out before next slide moves in
+        position : [{{ page.header.fractionslider.position|default('0, 0') }}], //default position | should never be used
+        transitionIn : "{{ page.header.fractionslider.transitionIn|default('left') }}", //default in - transition
+        transitionOut : "{{ page.header.fractionslider.transitionOut|default('left') }}", //default out - transition
+        fullWidth : {{ page.header.fractionslider.fullWidth|default('false') }}, //transition over the full width of the window
+        delay : {{ page.header.fractionslider.delay|default(0) }}, //default delay for elements
+        timeout : {{ page.header.fractionslider.timeout|default(2000) }}, //default timeout before switching slides
+        speedIn : {{ page.header.fractionslider.speedIn|default(2500) }}, //default in - transition speed
+        speedOut : {{ page.header.fractionslider.speedOut|default(1000) }}, //default out - transition speed
+        easeIn : "{{ page.header.fractionslider.easeIn|default('easeOutExpo') }}", //default easing in
+        easeOut : "{{ page.header.fractionslider.easeOut|default('easeOutCubic') }}", //default easing out
+        controls : {{ page.header.fractionslider.controls|default('false') }}, //controls on/off
+        pager : {{ page.header.fractionslider.pager|default('false') }}, //pager inside of the slider on/off OR $(someselector) for a pager outside of the slider
+        autoChange : {{ page.header.fractionslider.autoChange|default('true') }}, //auto change slides
+        pauseOnHover : {{ page.header.fractionslider.pauseOnHover|default('false') }}, //Pauses slider on hover (current step will still be completed)
+        backgroundAnimation : {{ page.header.fractionslider.backgroundAnimation|default('false') }}, //background animation
+        backgroundElement : {{ page.header.fractionslider.backgroundElement|default('null') }}, //element to animate | default fractionSlider element
+        backgroundX : {{ page.header.fractionslider.backgroundX|default(500) }}, //background animation x distance
+        backgroundY : {{ page.header.fractionslider.backgroundY|default(500) }}, //background animation y distance
+        backgroundSpeed : {{ page.header.fractionslider.backgroundSpeed|default(2500) }}, //default background animation speed
+        backgroundEase : "{{ page.header.fractionslider.backgroundEase|default('easeOutCubic') }}", //default background animation easing
+        responsive : {{ page.header.fractionslider.responsive|default('false') }}, //responsive slider (see below for some implementation tipps)
+        increase : {{ page.header.fractionslider.increase|default('false') }}, //if set slider is allowed to get bigger than basic dimensions
+        dimensions : [{{ page.header.fractionslider.dimensions|default('1000, 400') }}],
+        // IMPORTANT:
+        //if you use the responsive option you have to set dimensions to the origin (widthheight) in px
+        //you use for data-positionheights of elements etc. *
+        startCallback : {{ page.header.fractionslider.startCallback|default('null') }}, //callbacks see below for more information on callbacks
+        startNextSlideCallback : {{ page.header.fractionslider.startNextSlideCallback|default('null') }},
+        stopCallback : {{ page.header.fractionslider.stopCallback|default('null') }},
+        pauseCallback : {{ page.header.fractionslider.pauseCallback|default('null') }},
+        resumeCallback : {{ page.header.fractionslider.resumeCallback|default('null') }},
+        nextSlideCallback : {{ page.header.fractionslider.nextSlideCallback|default('null') }},
+        prevSlideCallback : {{ page.header.fractionslider.prevSlideCallback|default('null') }},
+        pagerCallback : {{ page.header.fractionslider.pagerCallback|default('null') }}
+    });
+
+  });
+</script>
+
+<div class="ui fraction">
+    {% if page.header.fractionslider.content %}
+    {{ page.header.fractionslider.content }}
+    {% else %}
+    <div class="slider">
+        <div class="slide">
+            <h2 data-position="80,80" data-step="0">Please insert file</h2>
+            <h2 data-position="140,80" data-step="1">fraction.html.twig</h2>
+            <h2 data-position="200,80" data-step="2">on page dir like: 01.home/_fraction/fraction.html.twig</h2>
+        </div>
+        <div class="fs_loader"></div>
+    </div>
+</div>
+    {% endif %}
+</div>
